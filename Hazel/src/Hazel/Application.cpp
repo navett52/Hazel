@@ -35,8 +35,7 @@ namespace Hazel {
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClosed));
-		//dispatcher.Dispatch<MouseButtonPressedEvent>(BIND_EVENT_FN(OnMousePressed));
-		//dispatcher.Dispatch<MouseButtonReleasedEvent>(BIND_EVENT_FN(OnMouseReleased));
+		dispatcher.Dispatch<MouseButtonPressedEvent>(BIND_EVENT_FN(OnMousePressed));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
 		{
@@ -68,15 +67,8 @@ namespace Hazel {
 
 	bool Application::OnMousePressed(MouseButtonPressedEvent& e)
 	{
-		glClearColor(1, 0, 1, 1);
-		glClear(GL_COLOR_BUFFER_BIT);
-		return true;
+		HZ_CORE_TRACE("Mouse Button Pressed!");
+		return false;
 	}
 
-	bool Application::OnMouseReleased(MouseButtonReleasedEvent& e)
-	{
-		glClearColor(1, .5, 1, 1);
-		glClear(GL_COLOR_BUFFER_BIT);
-		return true;
-	}
 }
